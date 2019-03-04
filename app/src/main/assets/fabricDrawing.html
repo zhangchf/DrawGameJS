@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fabric Drawing</title>
+    <script src="./fabric.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body { /* make html and body fullscreen */
+            width:100%;
+            height: 100%;
+            background-color: red;
+        }
+        #c { /* make a canvas fullscreen, display:block is needed */
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+        }
+        
+        .div-fullscreen { /* make a div fullscreen */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="c"></canvas>
+
+    <script>
+    
+        var $ = function(id){return document.getElementById(id)};
+
+        let canvasElem = $('c');
+        let canvasWidth = canvasElem.offsetWidth;
+        let canvasHeight = canvasElem.offsetHeight;
+
+        console.log(`canvas size: ${canvasWidth}x${canvasHeight}`)
+
+        var canvas = this.__canvas = new fabric.Canvas('c', {
+            isDrawingMode: true,
+            width: canvasWidth,
+            height: canvasHeight
+        });
+
+        fabric.Object.prototype.transparentCorners = false;
+    </script>
+    
+</body>
+</html>
