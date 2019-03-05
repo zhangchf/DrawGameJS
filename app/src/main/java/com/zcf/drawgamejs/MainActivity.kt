@@ -11,9 +11,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        webview.settings.javaScriptEnabled = true
         WebView.setWebContentsDebuggingEnabled(true)
+        webview.settings.javaScriptEnabled = true
+        webview.settings.domStorageEnabled = true
+        webview.settings.allowUniversalAccessFromFileURLs = true
 
-        webview.loadUrl("file:///android_asset/fabricDrawing.html")
+        // Method 1:
+//        webview.loadUrl("file:///android_asset/fabricDrawing.html")
+        // Method 2:
+//        webview.loadUrl("http://10.128.59.2:3000")
+        // Method 3:
+        webview.loadUrl("https://zhangchf-echoserver.glitch.me")
     }
 }
